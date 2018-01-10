@@ -1,5 +1,5 @@
 # Neural Machine Translation (seq2seq) Tutorial
-
+nohup python -m nmt.nmt --attention=scaled_luong --src=en --tgt=vi --vocab_prefix=nmt/tmp/nmt_data/vocab_lm --train_prefix=nmt/tmp/nmt_data/train_lm --dev_prefix=nmt/tmp/nmt_data/tst_lm_2012 --test_prefix=nmt/tmp/nmt_data/tst_lm_2013 --out_dir=/tmp/nmt_attention_model/ --num_train_steps=12000 --steps_per_stats=100 --num_layers=2 --num_units=128 --dropout=0.2 --metrics=bleu > train.log &
 *Authors: Thang Luong, Eugene Brevdo, Rui Zhao*
 
 *This version of the tutorial requires [TensorFlow Version 1.2+](https://github.com/tensorflow/tensorflow/#installation)*

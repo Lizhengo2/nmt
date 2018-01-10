@@ -1,0 +1,1414 @@
+# Job id 0
+# hparams:
+  src=en
+  tgt=vi
+  train_prefix=nmt/tmp/nmt_data/train_lm
+  dev_prefix=nmt/tmp/nmt_data/tst_lm_2012
+  test_prefix=nmt/tmp/nmt_data/tst_lm_2013
+  out_dir=nmt/tmp/nmt_attention_model/
+# Vocab file nmt/tmp/nmt_data/vocab_lm.en exists
+# Vocab file nmt/tmp/nmt_data/vocab_lm.vi exists
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  saving hparams to nmt/tmp/nmt_attention_model/best_bleu/hparams
+  attention=scaled_luong
+  attention_architecture=standard
+  batch_size=128
+  beam_width=0
+  best_bleu=0
+  best_bleu_dir=nmt/tmp/nmt_attention_model/best_bleu
+  bpe_delimiter=None
+  colocate_gradients_with_ops=True
+  decay_factor=0.98
+  decay_steps=10000
+  dev_prefix=nmt/tmp/nmt_data/tst_lm_2012
+  dropout=0.2
+  encoder_type=uni
+  eos=</s>
+  epoch_step=0
+  forget_bias=1.0
+  infer_batch_size=32
+  init_op=uniform
+  init_weight=0.1
+  learning_rate=1.0
+  length_penalty_weight=0.0
+  log_device_placement=False
+  max_gradient_norm=5.0
+  max_train=0
+  metrics=['bleu']
+  num_buckets=5
+  num_embeddings_partitions=0
+  num_gpus=1
+  num_layers=2
+  num_residual_layers=0
+  num_train_steps=12000
+  num_units=128
+  optimizer=sgd
+  out_dir=nmt/tmp/nmt_attention_model/
+  pass_hidden_state=True
+  random_seed=None
+  residual=False
+  share_vocab=False
+  sos=<s>
+  source_reverse=False
+  src=en
+  src_max_len=50
+  src_max_len_infer=None
+  src_vocab_file=nmt/tmp/nmt_data/vocab_lm.en
+  src_vocab_size=29
+  start_decay_step=0
+  steps_per_external_eval=None
+  steps_per_stats=100
+  test_prefix=nmt/tmp/nmt_data/tst_lm_2013
+  tgt=vi
+  tgt_max_len=50
+  tgt_max_len_infer=None
+  tgt_vocab_file=nmt/tmp/nmt_data/vocab_lm.vi
+  tgt_vocab_size=30
+  time_major=True
+  train_prefix=nmt/tmp/nmt_data/train_lm
+  unit_type=lstm
+  vocab_prefix=nmt/tmp/nmt_data/vocab_lm
+# creating train graph ...
+  num_layers = 2, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  start_decay_step=0, learning_rate=1, decay_steps 10000,decay_factor 0.98
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (29, 128), 
+  embeddings/decoder/embedding_decoder:0, (30, 128), 
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/memory_layer/kernel:0, (128, 128), 
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (384, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/luong_attention/attention_g:0, (), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/attention_layer/kernel:0, (256, 128), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 30), /device:GPU:0
+# creating eval graph ...
+  num_layers = 2, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  start_decay_step=0, learning_rate=1, decay_steps 10000,decay_factor 0.98
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (29, 128), 
+  embeddings/decoder/embedding_decoder:0, (30, 128), 
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/memory_layer/kernel:0, (128, 128), 
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (384, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/luong_attention/attention_g:0, (), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/attention_layer/kernel:0, (256, 128), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 30), /device:GPU:0
+# creating infer graph ...
+  num_layers = 2, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  start_decay_step=0, learning_rate=1, decay_steps 10000,decay_factor 0.98
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (29, 128), 
+  embeddings/decoder/embedding_decoder:0, (30, 128), 
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/memory_layer/kernel:0, (128, 128), 
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (384, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/luong_attention/attention_g:0, (), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/attention_layer/kernel:0, (256, 128), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 30), 
+# log_file=nmt/tmp/nmt_attention_model/log_1510571907
+2017-11-13 19:18:27.692171: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-13 19:18:27.692203: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-13 19:18:27.692210: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-13 19:18:27.692215: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-13 19:18:27.692219: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+  created train model with fresh parameters, time 0.19s
+  created infer model with fresh parameters, time 0.08s
+  # 1463
+    src: u r
+    ref: u s
+    nmt: t t v v
+  created eval model with fresh parameters, time 0.07s
+  eval dev: perplexity 29.99, time 1s, Mon Nov 13 19:18:29 2017.
+  eval test: perplexity 29.99, time 1s, Mon Nov 13 19:18:31 2017.
+2017-11-13 19:18:31.133964: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:18:31.133964: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:18:31.133964: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  created infer model with fresh parameters, time 0.05s
+# Start step 0, lr 1, Mon Nov 13 19:18:31 2017
+# Init train iterator, skipping 0 elements
+  global step 100 lr 1 step-time 0.21s wps 5.45K ppl 27.35 bleu 0.00
+  global step 200 lr 1 step-time 0.19s wps 5.96K ppl 6.21 bleu 0.00
+  global step 300 lr 1 step-time 0.19s wps 5.92K ppl 2.76 bleu 0.00
+# Finished an epoch, step 302. Perform external evaluation
+2017-11-13 19:19:30.633440: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:19:30.633440: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:19:30.633440: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  created infer model with fresh parameters, time 0.05s
+  # 518
+    src: b a f
+    ref: b a d
+    nmt: e e o o k b
+2017-11-13 19:19:30.685398: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:19:30.685470: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:19:30.685718: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  created infer model with fresh parameters, time 0.05s
+  global step 400 lr 1 step-time 0.20s wps 5.46K ppl 1.77 bleu 0.00
+  global step 500 lr 1 step-time 0.19s wps 5.97K ppl 1.45 bleu 0.00
+  global step 600 lr 1 step-time 0.19s wps 5.92K ppl 1.31 bleu 0.00
+# Finished an epoch, step 604. Perform external evaluation
+2017-11-13 19:20:29.978891: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:20:29.978891: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:20:29.978928: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  created infer model with fresh parameters, time 0.04s
+  # 1548
+    src: a b d
+    ref: a n d
+    nmt: l d h h h t
+2017-11-13 19:20:30.021852: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:20:30.021852: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:20:30.021852: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  created infer model with fresh parameters, time 0.04s
+  global step 700 lr 1 step-time 0.21s wps 5.44K ppl 1.24 bleu 0.00
+  global step 800 lr 1 step-time 0.19s wps 5.94K ppl 1.17 bleu 0.00
+  global step 900 lr 1 step-time 0.22s wps 5.27K ppl 1.12 bleu 0.00
+# Finished an epoch, step 906. Perform external evaluation
+2017-11-13 19:21:32.024330: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:21:32.024338: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:21:32.024708: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  created infer model with fresh parameters, time 0.05s
+  # 209
+    src: h s y
+    ref: h e y
+    nmt: g ' c c z z
+2017-11-13 19:21:32.080845: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:21:32.080845: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:21:32.080858: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  created infer model with fresh parameters, time 0.05s
+  global step 1000 lr 1 step-time 0.24s wps 4.73K ppl 1.12 bleu 0.00
+# Save eval, global step 1000
+2017-11-13 19:21:55.084106: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:21:55.084106: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:21:55.084157: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-1000, time 0.04s
+  # 1139
+    src: t h e r e s
+    ref: t h e r e ' s
+    nmt: t h e r e ' s
+2017-11-13 19:21:55.133824: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:21:55.133824: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-1000, time 0.04s
+  eval dev: perplexity 1.07, time 1s, Mon Nov 13 19:21:56 2017.
+  eval test: perplexity 1.07, time 1s, Mon Nov 13 19:21:57 2017.
+  global step 1100 lr 1 step-time 0.20s wps 5.67K ppl 1.10 bleu 0.00
+  global step 1200 lr 1 step-time 0.20s wps 5.63K ppl 1.09 bleu 0.00
+# Finished an epoch, step 1208. Perform external evaluation
+2017-11-13 19:22:39.732379: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:22:39.732379: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:22:39.732622: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-1000, time 0.03s
+  # 2078
+    src: f o f
+    ref: f o r
+    nmt: f o r
+2017-11-13 19:22:39.767513: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:22:39.767513: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:22:39.767570: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-1000, time 0.03s
+# External evaluation, global step 1000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 19:22:41 2017.
+  bleu dev: 95.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 1000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 2s, Mon Nov 13 19:22:43 2017.
+  bleu test: 95.0
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 1300 lr 1 step-time 0.22s wps 5.16K ppl 1.07 bleu 95.28
+  global step 1400 lr 1 step-time 0.20s wps 5.70K ppl 1.07 bleu 95.28
+  global step 1500 lr 1 step-time 0.20s wps 5.76K ppl 1.06 bleu 95.28
+# Finished an epoch, step 1510. Perform external evaluation
+2017-11-13 19:23:45.924804: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:23:45.924832: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:23:45.924870: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-1000, time 0.03s
+  # 739
+    src: a s k i
+    ref: a s k i n g
+    nmt: a s k i n g
+2017-11-13 19:23:45.964089: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 19:23:45.964141: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 19:23:45.964162: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-1000, time 0.03s
+# External evaluation, global step 1000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 2s, Mon Nov 13 19:23:48 2017.
+  bleu dev: 95.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 1000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 8768s, Mon Nov 13 21:49:57 2017.
+  bleu test: 95.0
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 1600 lr 1 step-time 0.22s wps 5.02K ppl 1.06 bleu 95.28
+  global step 1700 lr 1 step-time 0.21s wps 5.44K ppl 1.05 bleu 95.28
+  global step 1800 lr 1 step-time 0.20s wps 5.67K ppl 1.05 bleu 95.28
+# Finished an epoch, step 1812. Perform external evaluation
+2017-11-13 21:51:00.878873: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:51:00.878880: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:51:00.878920: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-1000, time 0.04s
+  # 558
+    src: t y o e
+    ref: t y p e
+    nmt: t y p e
+2017-11-13 21:51:00.914603: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:51:00.914608: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:51:00.914608: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-1000, time 0.03s
+# External evaluation, global step 1000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 21:51:02 2017.
+  bleu dev: 95.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 1000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 21:51:04 2017.
+  bleu test: 95.0
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 1900 lr 1 step-time 0.21s wps 5.27K ppl 1.05 bleu 95.28
+  global step 2000 lr 1 step-time 0.20s wps 5.77K ppl 1.04 bleu 95.28
+# Save eval, global step 2000
+2017-11-13 21:51:44.351676: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:51:44.351693: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:51:44.351775: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-2000, time 0.03s
+  # 1034
+    src: n o t h o n g
+    ref: n o t h i n g
+    nmt: n o t h i n g
+2017-11-13 21:51:44.404336: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:51:44.404336: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-2000, time 0.05s
+  eval dev: perplexity 1.03, time 1s, Mon Nov 13 21:51:45 2017.
+  eval test: perplexity 1.04, time 1s, Mon Nov 13 21:51:47 2017.
+  global step 2100 lr 1 step-time 0.20s wps 5.74K ppl 1.04 bleu 95.28
+# Finished an epoch, step 2114. Perform external evaluation
+2017-11-13 21:52:09.700883: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:52:09.700883: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:52:09.700883: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-2000, time 0.05s
+  # 100
+    src: c a n y
+    ref: c a n ' t
+    nmt: c a n ' t
+2017-11-13 21:52:09.754641: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:52:09.754643: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:52:09.754774: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-2000, time 0.05s
+# External evaluation, global step 2000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 2s, Mon Nov 13 21:52:11 2017.
+  bleu dev: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 2000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 2s, Mon Nov 13 21:52:14 2017.
+  bleu test: 96.7
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 2200 lr 1 step-time 0.22s wps 5.17K ppl 1.05 bleu 97.43
+  global step 2300 lr 1 step-time 0.20s wps 5.83K ppl 1.06 bleu 97.43
+  global step 2400 lr 1 step-time 0.20s wps 5.62K ppl 1.04 bleu 97.43
+# Finished an epoch, step 2416. Perform external evaluation
+2017-11-13 21:53:15.753259: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:53:15.753278: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:53:15.753259: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-2000, time 0.04s
+  # 487
+    src: o e r s o n
+    ref: p e r s o n
+    nmt: p e r s o n
+2017-11-13 21:53:15.804004: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:53:15.804004: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:53:15.804051: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-2000, time 0.04s
+# External evaluation, global step 2000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 21:53:17 2017.
+  bleu dev: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 2000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 21:53:19 2017.
+  bleu test: 96.7
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 2500 lr 1 step-time 0.21s wps 5.42K ppl 1.04 bleu 97.43
+  global step 2600 lr 1 step-time 0.19s wps 5.91K ppl 1.04 bleu 97.43
+  global step 2700 lr 1 step-time 0.19s wps 5.93K ppl 1.04 bleu 97.43
+# Finished an epoch, step 2718. Perform external evaluation
+2017-11-13 21:54:19.470627: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:54:19.470627: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:54:19.470642: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-2000, time 0.03s
+  # 1799
+    src: g i y s
+    ref: g u y s
+    nmt: g u y s
+2017-11-13 21:54:19.518385: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:54:19.518385: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:54:19.518392: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-2000, time 0.04s
+# External evaluation, global step 2000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 21:54:21 2017.
+  bleu dev: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 2000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 21:54:23 2017.
+  bleu test: 96.7
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 2800 lr 1 step-time 0.21s wps 5.44K ppl 1.04 bleu 97.43
+  global step 2900 lr 1 step-time 0.19s wps 5.96K ppl 1.03 bleu 97.43
+  global step 3000 lr 1 step-time 0.19s wps 5.94K ppl 1.03 bleu 97.43
+# Save eval, global step 3000
+2017-11-13 21:55:19.722090: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:55:19.722091: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:55:19.722090: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.03s
+  # 1612
+    src: n i t
+    ref: n o t
+    nmt: n o t
+2017-11-13 21:55:19.776010: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:55:19.776010: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.05s
+  eval dev: perplexity 1.03, time 1s, Mon Nov 13 21:55:21 2017.
+  eval test: perplexity 1.03, time 1s, Mon Nov 13 21:55:22 2017.
+# Finished an epoch, step 3020. Perform external evaluation
+2017-11-13 21:55:26.053610: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:55:26.053610: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:55:26.053610: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.04s
+  # 2158
+    src: s h e s
+    ref: s h e ' s
+    nmt: s h e ' s
+2017-11-13 21:55:26.115478: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:55:26.115478: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:55:26.115478: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.05s
+# External evaluation, global step 3000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 21:55:27 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 3000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 21:55:30 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 3100 lr 1 step-time 0.21s wps 5.42K ppl 1.03 bleu 97.87
+  global step 3200 lr 1 step-time 0.19s wps 5.91K ppl 1.03 bleu 97.87
+  global step 3300 lr 1 step-time 0.19s wps 5.98K ppl 1.03 bleu 97.87
+# Finished an epoch, step 3322. Perform external evaluation
+2017-11-13 21:56:29.640891: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:56:29.640949: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:56:29.640891: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.04s
+  # 916
+    src: d o n t
+    ref: d o n ' t
+    nmt: d o n ' t
+2017-11-13 21:56:29.687576: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:56:29.687576: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:56:29.687578: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.04s
+# External evaluation, global step 3000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 21:56:31 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 3000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 21:56:33 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 3400 lr 1 step-time 0.21s wps 5.43K ppl 1.04 bleu 97.87
+  global step 3500 lr 1 step-time 0.19s wps 5.97K ppl 1.03 bleu 97.87
+  global step 3600 lr 1 step-time 0.19s wps 5.99K ppl 1.03 bleu 97.87
+# Finished an epoch, step 3624. Perform external evaluation
+2017-11-13 21:57:32.815324: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:57:32.815329: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:57:32.815350: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.05s
+  # 2092
+    src: g e t t
+    ref: g e t t i n g
+    nmt: g e t t i n g
+2017-11-13 21:57:32.866693: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:57:32.866693: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:57:32.866699: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.04s
+# External evaluation, global step 3000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 21:57:34 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 3000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 21:57:36 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 3700 lr 1 step-time 0.21s wps 5.43K ppl 1.04 bleu 97.87
+  global step 3800 lr 1 step-time 0.19s wps 5.99K ppl 1.03 bleu 97.87
+  global step 3900 lr 1 step-time 0.19s wps 5.91K ppl 1.03 bleu 97.87
+# Finished an epoch, step 3926. Perform external evaluation
+2017-11-13 21:58:36.139977: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:58:36.139977: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:58:36.140016: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.04s
+  # 1391
+    src: i g h t
+    ref: r i g h t
+    nmt: r i g h t
+2017-11-13 21:58:36.186622: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:58:36.186622: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:58:36.186625: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-3000, time 0.04s
+# External evaluation, global step 3000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 21:58:38 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 3000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 21:58:40 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 4000 lr 1 step-time 0.21s wps 5.42K ppl 1.03 bleu 97.87
+# Save eval, global step 4000
+2017-11-13 21:58:56.300502: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:58:56.300554: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:58:56.300515: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-4000, time 0.04s
+  # 1694
+    src: l o c e
+    ref: l o v e
+    nmt: l o v e
+2017-11-13 21:58:56.351067: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:58:56.351067: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-4000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 21:58:57 2017.
+  eval test: perplexity 1.03, time 1s, Mon Nov 13 21:58:58 2017.
+  global step 4100 lr 1 step-time 0.19s wps 5.96K ppl 1.03 bleu 97.87
+  global step 4200 lr 1 step-time 0.19s wps 6.01K ppl 1.03 bleu 97.87
+# Finished an epoch, step 4228. Perform external evaluation
+2017-11-13 21:59:42.279137: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:59:42.279137: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:59:42.279173: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-4000, time 0.03s
+  # 428
+    src: g h e
+    ref: t h e
+    nmt: t h e
+2017-11-13 21:59:42.324703: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 21:59:42.324703: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 21:59:42.324703: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-4000, time 0.04s
+# External evaluation, global step 4000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 21:59:44 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 4000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 21:59:46 2017.
+  bleu test: 97.5
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 4300 lr 1 step-time 0.21s wps 5.42K ppl 1.03 bleu 97.87
+  global step 4400 lr 1 step-time 0.19s wps 5.95K ppl 1.03 bleu 97.87
+  global step 4500 lr 1 step-time 0.19s wps 5.97K ppl 1.03 bleu 97.87
+# Finished an epoch, step 4530. Perform external evaluation
+2017-11-13 22:00:45.621120: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:00:45.621120: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:00:45.621120: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-4000, time 0.04s
+  # 1947
+    src: b o
+    ref: n o
+    nmt: n o
+2017-11-13 22:00:45.669207: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:00:45.669207: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:00:45.669255: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-4000, time 0.04s
+# External evaluation, global step 4000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:00:47 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 4000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:00:49 2017.
+  bleu test: 97.5
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 4600 lr 1 step-time 0.21s wps 5.43K ppl 1.02 bleu 97.87
+  global step 4700 lr 1 step-time 0.19s wps 6.02K ppl 1.02 bleu 97.87
+  global step 4800 lr 1 step-time 0.19s wps 5.96K ppl 1.02 bleu 97.87
+# Finished an epoch, step 4832. Perform external evaluation
+2017-11-13 22:01:48.764517: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:01:48.764517: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:01:48.764517: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-4000, time 0.04s
+  # 974
+    src: t h o u g h
+    ref: t h o u g h t
+    nmt: t h o u g h t
+2017-11-13 22:01:48.814137: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:01:48.814143: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:01:48.814178: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-4000, time 0.04s
+# External evaluation, global step 4000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:01:50 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 4000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:01:52 2017.
+  bleu test: 97.5
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 4900 lr 1 step-time 0.21s wps 5.44K ppl 1.03 bleu 97.87
+  global step 5000 lr 1 step-time 0.19s wps 5.98K ppl 1.02 bleu 97.87
+# Save eval, global step 5000
+2017-11-13 22:02:26.823154: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:02:26.823154: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:02:26.823156: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.03s
+  # 173
+    src: c o n f u
+    ref: c o n f u s e d
+    nmt: c o n f u s e d
+2017-11-13 22:02:26.876858: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:02:26.876858: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:02:28 2017.
+  eval test: perplexity 1.03, time 1s, Mon Nov 13 22:02:29 2017.
+2017-11-13 22:02:29.711748: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:02:29.711748: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:02:29.711805: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.03s
+  # 337
+    src: j u a t
+    ref: j u s t
+    nmt: j u s t
+2017-11-13 22:02:29.764993: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:02:29.764996: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:02:29.765000: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.05s
+# External evaluation, global step 5000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:02:31 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 5000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:02:33 2017.
+  bleu test: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 5100 lr 1 step-time 0.19s wps 5.98K ppl 1.02 bleu 97.89
+# Finished an epoch, step 5134. Perform external evaluation
+2017-11-13 22:02:59.164672: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:02:59.164723: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:02:59.164672: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.04s
+  # 353
+    src: k n i w
+    ref: k n o w
+    nmt: k n o w
+2017-11-13 22:02:59.210175: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:02:59.210226: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:02:59.210195: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.04s
+# External evaluation, global step 5000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:03:00 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 5000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:03:02 2017.
+  bleu test: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 5200 lr 1 step-time 0.21s wps 5.39K ppl 1.02 bleu 97.89
+  global step 5300 lr 1 step-time 0.19s wps 5.97K ppl 1.02 bleu 97.89
+  global step 5400 lr 1 step-time 0.19s wps 6.00K ppl 1.02 bleu 97.89
+# Finished an epoch, step 5436. Perform external evaluation
+2017-11-13 22:04:02.402899: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:04:02.402899: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:04:02.402899: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.04s
+  # 1313
+    src: w i y h
+    ref: w i t h
+    nmt: w i t h
+2017-11-13 22:04:02.449236: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:04:02.449236: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:04:02.449240: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.04s
+# External evaluation, global step 5000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:04:04 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 5000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:04:06 2017.
+  bleu test: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 5500 lr 1 step-time 0.20s wps 5.43K ppl 1.03 bleu 97.89
+  global step 5600 lr 1 step-time 0.19s wps 5.99K ppl 1.02 bleu 97.89
+  global step 5700 lr 1 step-time 0.19s wps 6.03K ppl 1.02 bleu 97.89
+# Finished an epoch, step 5738. Perform external evaluation
+2017-11-13 22:05:05.353711: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:05:05.353746: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:05:05.354009: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.04s
+  # 928
+    src: t g a t
+    ref: t h a t
+    nmt: t h a t
+2017-11-13 22:05:05.390736: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:05:05.390736: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:05:05.390759: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-5000, time 0.03s
+# External evaluation, global step 5000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:05:07 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 5000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:05:09 2017.
+  bleu test: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 5800 lr 1 step-time 0.21s wps 5.36K ppl 1.02 bleu 97.89
+  global step 5900 lr 1 step-time 0.20s wps 5.70K ppl 1.02 bleu 97.89
+  global step 6000 lr 1 step-time 0.20s wps 5.79K ppl 1.02 bleu 97.89
+# Save eval, global step 6000
+2017-11-13 22:06:03.271691: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:06:03.271691: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:06:03.271691: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.03s
+  # 721
+    src: y k u
+    ref: y o u
+    nmt: y o u
+2017-11-13 22:06:03.314629: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:06:03.314630: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:06:04 2017.
+  eval test: perplexity 1.03, time 1s, Mon Nov 13 22:06:05 2017.
+# Finished an epoch, step 6040. Perform external evaluation
+2017-11-13 22:06:13.681417: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:06:13.681417: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:06:13.681424: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.03s
+  # 781
+    src: l o v w
+    ref: l o v e
+    nmt: l o v e
+2017-11-13 22:06:13.721910: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:06:13.721910: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:06:13.721912: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.03s
+# External evaluation, global step 6000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:06:15 2017.
+  bleu dev: 97.8
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 6000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:06:17 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 6100 lr 1 step-time 0.21s wps 5.22K ppl 1.02 bleu 97.89
+  global step 6200 lr 1 step-time 0.21s wps 5.54K ppl 1.02 bleu 97.89
+  global step 6300 lr 1 step-time 0.19s wps 6.01K ppl 1.02 bleu 97.89
+# Finished an epoch, step 6342. Perform external evaluation
+2017-11-13 22:07:18.925001: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:07:18.925084: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:07:18.925091: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.03s
+  # 705
+    src: w a t c h i n h
+    ref: w a t c h i n g
+    nmt: w a t c h i n g
+2017-11-13 22:07:18.964826: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:07:18.964826: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:07:18.964827: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.03s
+# External evaluation, global step 6000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:07:20 2017.
+  bleu dev: 97.8
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 6000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:07:22 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 6400 lr 1 step-time 0.21s wps 5.42K ppl 1.02 bleu 97.89
+  global step 6500 lr 1 step-time 0.19s wps 5.94K ppl 1.02 bleu 97.89
+  global step 6600 lr 1 step-time 0.19s wps 5.98K ppl 1.02 bleu 97.89
+# Finished an epoch, step 6644. Perform external evaluation
+2017-11-13 22:08:22.290985: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:08:22.291004: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:08:22.291136: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.03s
+  # 372
+    src: w a a
+    ref: w a s
+    nmt: w a s
+2017-11-13 22:08:22.326041: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:08:22.326044: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:08:22.326043: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.03s
+# External evaluation, global step 6000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:08:24 2017.
+  bleu dev: 97.8
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 6000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:08:26 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 6700 lr 1 step-time 0.21s wps 5.45K ppl 1.02 bleu 97.89
+  global step 6800 lr 1 step-time 0.19s wps 5.99K ppl 1.02 bleu 97.89
+  global step 6900 lr 1 step-time 0.19s wps 6.03K ppl 1.02 bleu 97.89
+# Finished an epoch, step 6946. Perform external evaluation
+2017-11-13 22:09:25.114090: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:09:25.114090: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:09:25.114092: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.04s
+  # 1673
+    src: h e t e
+    ref: h e r e
+    nmt: h e r e
+2017-11-13 22:09:25.148412: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:09:25.148416: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:09:25.148413: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-6000, time 0.03s
+# External evaluation, global step 6000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:09:26 2017.
+  bleu dev: 97.8
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 6000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:09:28 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 7000 lr 1 step-time 0.20s wps 5.48K ppl 1.02 bleu 97.89
+# Save eval, global step 7000
+2017-11-13 22:09:41.243822: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:09:41.243822: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:09:41.243848: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-7000, time 0.03s
+  # 1169
+    src: i m
+    ref: i ' m
+    nmt: i ' m
+2017-11-13 22:09:41.296266: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:09:41.296266: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-7000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:09:42 2017.
+  eval test: perplexity 1.02, time 1s, Mon Nov 13 22:09:43 2017.
+  global step 7100 lr 1 step-time 0.20s wps 5.77K ppl 1.02 bleu 97.89
+  global step 7200 lr 1 step-time 0.19s wps 5.98K ppl 1.02 bleu 97.89
+# Finished an epoch, step 7248. Perform external evaluation
+2017-11-13 22:10:31.559775: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:10:31.559775: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:10:31.559775: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-7000, time 0.04s
+  # 1892
+    src: y a l l
+    ref: y ' a l l
+    nmt: y ' a l l
+2017-11-13 22:10:31.604062: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:10:31.604062: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:10:31.604115: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-7000, time 0.04s
+# External evaluation, global step 7000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:10:33 2017.
+  bleu dev: 97.6
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 7000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:10:35 2017.
+  bleu test: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 7300 lr 1 step-time 0.20s wps 5.49K ppl 1.02 bleu 97.89
+  global step 7400 lr 1 step-time 0.19s wps 6.00K ppl 1.02 bleu 97.89
+  global step 7500 lr 1 step-time 0.19s wps 5.93K ppl 1.02 bleu 97.89
+# Finished an epoch, step 7550. Perform external evaluation
+2017-11-13 22:11:34.692833: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:11:34.692872: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:11:34.692872: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-7000, time 0.05s
+  # 1647
+    src: e v e r y
+    ref: e v e r y t h i n g
+    nmt: e v e r y t h i n g
+2017-11-13 22:11:34.737718: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:11:34.737718: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:11:34.737749: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-7000, time 0.04s
+# External evaluation, global step 7000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:11:36 2017.
+  bleu dev: 97.6
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 7000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:11:38 2017.
+  bleu test: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 7600 lr 1 step-time 0.21s wps 5.45K ppl 1.02 bleu 97.89
+  global step 7700 lr 1 step-time 0.19s wps 5.94K ppl 1.02 bleu 97.89
+  global step 7800 lr 1 step-time 0.19s wps 5.92K ppl 1.02 bleu 97.89
+# Finished an epoch, step 7852. Perform external evaluation
+2017-11-13 22:12:38.088039: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:12:38.088058: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:12:38.088039: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-7000, time 0.04s
+  # 236
+    src: t h w
+    ref: t h e
+    nmt: t h e
+2017-11-13 22:12:38.134686: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:12:38.134686: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:12:38.134686: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-7000, time 0.04s
+# External evaluation, global step 7000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:12:39 2017.
+  bleu dev: 97.6
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 7000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:12:41 2017.
+  bleu test: 97.4
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 7900 lr 1 step-time 0.21s wps 5.45K ppl 1.02 bleu 97.89
+  global step 8000 lr 1 step-time 0.19s wps 5.95K ppl 1.02 bleu 97.89
+# Save eval, global step 8000
+2017-11-13 22:13:12.359791: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:13:12.359791: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:13:12.359791: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-8000, time 0.04s
+  # 615
+    src: e h a t s
+    ref: w h a t ' s
+    nmt: w h a t ' s
+2017-11-13 22:13:12.424940: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:13:12.424948: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-8000, time 0.06s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:13:13 2017.
+  eval test: perplexity 1.02, time 1s, Mon Nov 13 22:13:15 2017.
+  global step 8100 lr 1 step-time 0.19s wps 5.94K ppl 1.02 bleu 97.89
+# Finished an epoch, step 8154. Perform external evaluation
+2017-11-13 22:13:44.246340: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:13:44.246377: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:13:44.246377: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-8000, time 0.04s
+  # 998
+    src: i m
+    ref: i ' m
+    nmt: i ' m
+2017-11-13 22:13:44.287905: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:13:44.287922: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:13:44.287961: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-8000, time 0.04s
+# External evaluation, global step 8000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:13:46 2017.
+  bleu dev: 98.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 8000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:13:48 2017.
+  bleu test: 97.8
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 8200 lr 1 step-time 0.21s wps 5.45K ppl 1.02 bleu 98.25
+  global step 8300 lr 1 step-time 0.19s wps 5.97K ppl 1.02 bleu 98.25
+  global step 8400 lr 1 step-time 0.19s wps 5.97K ppl 1.02 bleu 98.25
+# Finished an epoch, step 8456. Perform external evaluation
+2017-11-13 22:14:47.564278: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:14:47.564278: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:14:47.564471: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-8000, time 0.05s
+  # 934
+    src: g i o d
+    ref: g o o d
+    nmt: g o o d
+2017-11-13 22:14:47.612999: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:14:47.613003: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:14:47.613005: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-8000, time 0.04s
+# External evaluation, global step 8000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:14:49 2017.
+  bleu dev: 98.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 8000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:14:51 2017.
+  bleu test: 97.8
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 8500 lr 1 step-time 0.21s wps 5.45K ppl 1.02 bleu 98.25
+  global step 8600 lr 1 step-time 0.22s wps 5.07K ppl 1.02 bleu 98.25
+  global step 8700 lr 1 step-time 0.19s wps 6.01K ppl 1.02 bleu 98.25
+# Finished an epoch, step 8758. Perform external evaluation
+2017-11-13 22:15:54.010713: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:15:54.010744: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:15:54.010956: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-8000, time 0.05s
+  # 1745
+    src: t i
+    ref: t o
+    nmt: t o
+2017-11-13 22:15:54.051103: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:15:54.051103: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:15:54.051132: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-8000, time 0.03s
+# External evaluation, global step 8000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:15:55 2017.
+  bleu dev: 98.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 8000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:15:57 2017.
+  bleu test: 97.8
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 8800 lr 1 step-time 0.21s wps 5.49K ppl 1.02 bleu 98.25
+  global step 8900 lr 1 step-time 0.19s wps 5.94K ppl 1.02 bleu 98.25
+  global step 9000 lr 1 step-time 0.19s wps 6.01K ppl 1.02 bleu 98.25
+# Save eval, global step 9000
+2017-11-13 22:16:46.067967: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:16:46.068011: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:16:46.067967: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.04s
+  # 1934
+    src: i m
+    ref: i ' m
+    nmt: i ' m
+2017-11-13 22:16:46.133341: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:16:46.133342: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.06s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:16:47 2017.
+  eval test: perplexity 1.02, time 1s, Mon Nov 13 22:16:48 2017.
+# Finished an epoch, step 9060. Perform external evaluation
+2017-11-13 22:17:00.045049: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:17:00.045049: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:17:00.045053: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.04s
+  # 791
+    src: b j t
+    ref: b u t
+    nmt: b u t
+2017-11-13 22:17:00.084867: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:17:00.084921: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:17:00.084868: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.03s
+# External evaluation, global step 9000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:17:01 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 9000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:17:03 2017.
+  bleu test: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 9100 lr 1 step-time 0.21s wps 5.42K ppl 1.02 bleu 98.25
+  global step 9200 lr 1 step-time 0.19s wps 5.97K ppl 1.02 bleu 98.25
+  global step 9300 lr 1 step-time 0.19s wps 5.98K ppl 1.02 bleu 98.25
+# Finished an epoch, step 9362. Perform external evaluation
+2017-11-13 22:18:03.609719: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:18:03.609719: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:18:03.609719: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.04s
+  # 241
+    src: g o t r a
+    ref: g o t t a
+    nmt: g o t t a
+2017-11-13 22:18:03.654041: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:18:03.654050: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:18:03.654071: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.03s
+# External evaluation, global step 9000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:18:05 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 9000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:18:07 2017.
+  bleu test: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 9400 lr 1 step-time 0.21s wps 5.37K ppl 1.02 bleu 98.25
+  global step 9500 lr 1 step-time 0.19s wps 5.90K ppl 1.02 bleu 98.25
+  global step 9600 lr 1 step-time 0.19s wps 5.98K ppl 1.02 bleu 98.25
+# Finished an epoch, step 9664. Perform external evaluation
+2017-11-13 22:19:06.887620: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:19:06.887620: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:19:06.887621: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.04s
+  # 832
+    src: r i h h t
+    ref: r i g h t
+    nmt: r i g h t
+2017-11-13 22:19:06.929089: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:19:06.929089: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:19:06.929111: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.03s
+# External evaluation, global step 9000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:19:08 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 9000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:19:10 2017.
+  bleu test: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 9700 lr 1 step-time 0.21s wps 5.46K ppl 1.02 bleu 98.25
+  global step 9800 lr 1 step-time 0.19s wps 5.94K ppl 1.02 bleu 98.25
+  global step 9900 lr 1 step-time 0.19s wps 5.99K ppl 1.02 bleu 98.25
+# Finished an epoch, step 9966. Perform external evaluation
+2017-11-13 22:20:10.121032: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:20:10.121033: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:20:10.121035: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.03s
+  # 83
+    src: h e s
+    ref: h e ' s
+    nmt: h e ' s
+2017-11-13 22:20:10.159652: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:20:10.159658: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:20:10.159658: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-9000, time 0.03s
+# External evaluation, global step 9000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:20:12 2017.
+  bleu dev: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 9000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:20:14 2017.
+  bleu test: 97.9
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 10000 lr 0.98 step-time 0.21s wps 5.43K ppl 1.02 bleu 98.25
+# Save eval, global step 10000
+2017-11-13 22:20:22.519771: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:20:22.519776: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:20:22.519937: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.04s
+  # 481
+    src: e h a t s
+    ref: w h a t ' s
+    nmt: w h a t ' s
+2017-11-13 22:20:22.567616: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:20:22.567616: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:20:23 2017.
+  eval test: perplexity 1.02, time 1s, Mon Nov 13 22:20:25 2017.
+2017-11-13 22:20:25.449475: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:20:25.449475: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:20:25.449477: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.03s
+  # 1781
+    src: t h a
+    ref: t h a n k s
+    nmt: t h a n k s
+2017-11-13 22:20:25.489105: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:20:25.489105: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:20:25.489118: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.03s
+# External evaluation, global step 10000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:20:27 2017.
+  bleu dev: 98.2
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 10000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:20:29 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 10100 lr 0.98 step-time 0.19s wps 5.99K ppl 1.02 bleu 98.25
+  global step 10200 lr 0.98 step-time 0.19s wps 6.04K ppl 1.02 bleu 98.25
+# Finished an epoch, step 10268. Perform external evaluation
+2017-11-13 22:21:19.942914: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:21:19.942924: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:21:19.942960: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.03s
+  # 1172
+    src: g o r
+    ref: f o r
+    nmt: f o r
+2017-11-13 22:21:19.984278: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:21:19.984301: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:21:19.984278: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.04s
+# External evaluation, global step 10000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:21:21 2017.
+  bleu dev: 98.2
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 10000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:21:23 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 10300 lr 0.98 step-time 0.20s wps 5.50K ppl 1.02 bleu 98.25
+  global step 10400 lr 0.98 step-time 0.19s wps 6.03K ppl 1.02 bleu 98.25
+  global step 10500 lr 0.98 step-time 0.19s wps 5.97K ppl 1.02 bleu 98.25
+# Finished an epoch, step 10570. Perform external evaluation
+2017-11-13 22:22:22.664314: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:22:22.664314: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:22:22.664317: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.04s
+  # 1494
+    src: i m
+    ref: i ' m
+    nmt: i ' m
+2017-11-13 22:22:22.704564: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:22:22.704564: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:22:22.704567: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.03s
+# External evaluation, global step 10000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:22:24 2017.
+  bleu dev: 98.2
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 10000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:22:26 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 10600 lr 0.98 step-time 0.20s wps 5.48K ppl 1.02 bleu 98.25
+  global step 10700 lr 0.98 step-time 0.19s wps 6.02K ppl 1.02 bleu 98.25
+  global step 10800 lr 0.98 step-time 0.19s wps 6.04K ppl 1.02 bleu 98.25
+# Finished an epoch, step 10872. Perform external evaluation
+2017-11-13 22:23:25.352899: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:23:25.352899: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:23:25.352899: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.03s
+  # 46
+    src: m o b e y
+    ref: m o n e y
+    nmt: m o n e y
+2017-11-13 22:23:25.397652: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:23:25.397719: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:23:25.397736: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-10000, time 0.03s
+# External evaluation, global step 10000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:23:27 2017.
+  bleu dev: 98.2
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 10000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:23:29 2017.
+  bleu test: 97.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 10900 lr 0.98 step-time 0.20s wps 5.47K ppl 1.02 bleu 98.25
+  global step 11000 lr 0.98 step-time 0.21s wps 5.55K ppl 1.02 bleu 98.25
+# Save eval, global step 11000
+2017-11-13 22:23:57.118323: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:23:57.118323: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:23:57.118337: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-11000, time 0.04s
+  # 1591
+    src: r e s l l y
+    ref: r e a l l y
+    nmt: r e a l l y
+2017-11-13 22:23:57.168560: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:23:57.168602: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-11000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:23:58 2017.
+  eval test: perplexity 1.02, time 1s, Mon Nov 13 22:23:59 2017.
+  global step 11100 lr 0.98 step-time 0.19s wps 6.00K ppl 1.02 bleu 98.25
+# Finished an epoch, step 11174. Perform external evaluation
+2017-11-13 22:24:32.551388: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:24:32.551431: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:24:32.551431: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-11000, time 0.04s
+  # 898
+    src: s o e r y
+    ref: s o r r y
+    nmt: s o r r y
+2017-11-13 22:24:32.596719: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:24:32.596719: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:24:32.596719: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-11000, time 0.03s
+# External evaluation, global step 11000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:24:34 2017.
+  bleu dev: 98.0
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 11000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:24:36 2017.
+  bleu test: 97.7
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 11200 lr 0.98 step-time 0.20s wps 5.49K ppl 1.02 bleu 98.25
+  global step 11300 lr 0.98 step-time 0.19s wps 6.00K ppl 1.02 bleu 98.25
+  global step 11400 lr 0.98 step-time 0.19s wps 5.95K ppl 1.02 bleu 98.25
+# Finished an epoch, step 11476. Perform external evaluation
+2017-11-13 22:25:35.485019: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:25:35.485069: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:25:35.485136: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-11000, time 0.04s
+  # 738
+    src: y o
+    ref: t o
+    nmt: y o u r
+2017-11-13 22:25:35.527511: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:25:35.527511: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:25:35.527511: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-11000, time 0.04s
+# External evaluation, global step 11000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:25:37 2017.
+  bleu dev: 98.0
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 11000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:25:39 2017.
+  bleu test: 97.7
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 11500 lr 0.98 step-time 0.20s wps 5.48K ppl 1.02 bleu 98.25
+  global step 11600 lr 0.98 step-time 0.19s wps 6.00K ppl 1.02 bleu 98.25
+  global step 11700 lr 0.98 step-time 0.19s wps 5.94K ppl 1.02 bleu 98.25
+# Finished an epoch, step 11778. Perform external evaluation
+2017-11-13 22:26:38.565116: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:26:38.565153: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:26:38.565116: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-11000, time 0.04s
+  # 847
+    src: d k n t
+    ref: d o n ' t
+    nmt: d o n ' t
+2017-11-13 22:26:38.611454: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:26:38.611491: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:26:38.611454: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-11000, time 0.04s
+# External evaluation, global step 11000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:26:40 2017.
+  bleu dev: 98.0
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 11000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:26:42 2017.
+  bleu test: 97.7
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+  global step 11800 lr 0.98 step-time 0.21s wps 5.47K ppl 1.02 bleu 98.25
+  global step 11900 lr 0.98 step-time 0.19s wps 5.95K ppl 1.02 bleu 98.25
+  global step 12000 lr 0.98 step-time 0.19s wps 5.98K ppl 1.02 bleu 98.25
+# Save eval, global step 12000
+2017-11-13 22:27:27.008656: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:27:27.008732: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:27:27.008656: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-12000, time 0.04s
+  # 1799
+    src: g i y s
+    ref: g u y s
+    nmt: g u y s
+2017-11-13 22:27:27.058515: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:27:27.058515: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-12000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:27:28 2017.
+  eval test: perplexity 1.02, time 1s, Mon Nov 13 22:27:29 2017.
+2017-11-13 22:27:29.966531: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:27:29.966584: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:27:29.966531: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-12000, time 0.03s
+  # 710
+    src: p e r s o
+    ref: p e r s o n
+    nmt: p e r s o n
+2017-11-13 22:27:30.012076: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:27:30.012083: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-12000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:27:31 2017.
+  eval test: perplexity 1.02, time 1s, Mon Nov 13 22:27:32 2017.
+2017-11-13 22:27:32.643253: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:27:32.643356: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:27:32.643350: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/translate.ckpt-12000, time 0.04s
+# External evaluation, global step 12000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:27:34 2017.
+  bleu dev: 98.1
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 12000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:27:36 2017.
+  bleu test: 97.7
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# Final, step 12000 lr 0.98 step-time 0.19 wps 5.98K ppl 1.02, dev ppl 1.02, dev bleu 98.1, test ppl 1.02, test bleu 97.7, Mon Nov 13 22:27:36 2017
+# Done training!, time 11345s, Mon Nov 13 22:27:36 2017.
+# Start evaluating saved best models.
+2017-11-13 22:27:36.748983: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:27:36.748987: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:27:36.748983: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/best_bleu/translate.ckpt-8000, time 0.04s
+  # 1069
+    src: g e r
+    ref: h e r
+    nmt: h e r
+2017-11-13 22:27:36.797978: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:27:36.797978: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded eval model parameters from nmt/tmp/nmt_attention_model/best_bleu/translate.ckpt-8000, time 0.04s
+  eval dev: perplexity 1.02, time 1s, Mon Nov 13 22:27:38 2017.
+  eval test: perplexity 1.02, time 1s, Mon Nov 13 22:27:39 2017.
+2017-11-13 22:27:39.456457: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+2017-11-13 22:27:39.456459: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.en is already initialized.
+2017-11-13 22:27:39.456461: W tensorflow/core/kernels/lookup_table_init_op.cc:347] Table trying to initialize from file nmt/tmp/nmt_data/vocab_lm.vi is already initialized.
+  loaded infer model parameters from nmt/tmp/nmt_attention_model/best_bleu/translate.ckpt-8000, time 0.04s
+# External evaluation, global step 8000
+  decoding to output nmt/tmp/nmt_attention_model/output_dev.
+  done, num sentences 2177, time 1s, Mon Nov 13 22:27:41 2017.
+  bleu dev: 98.3
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# External evaluation, global step 8000
+  decoding to output nmt/tmp/nmt_attention_model/output_test.
+  done, num sentences 2262, time 1s, Mon Nov 13 22:27:43 2017.
+  bleu test: 97.8
+  saving hparams to nmt/tmp/nmt_attention_model/hparams
+# Best bleu, step 8000 step-time 0.19 wps 5.98K, dev ppl 1.02, dev bleu 98.3, test ppl 1.02, test bleu 97.8, Mon Nov 13 22:27:43 2017
